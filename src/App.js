@@ -4,7 +4,8 @@ import Cardlist from './components/cardlist/Cardlist.js'
 
 class App extends React.Component {
   state = {
-    monsters: []
+    monsters: [],
+    searchField: ""
   };
 
 
@@ -18,11 +19,14 @@ class App extends React.Component {
 
 
   render() {
+    const {monsters , searchField} = this.state 
+  //  ^^destructuring
+  const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()))
     return (
       <>
         <div>
-          <Cardlist monsters={this.state.monsters}/>
-
+          <input onChange={e => this.setState({searchField: e.target.value})} type="search" placeholder="search monsters"/>
+          <Cardlist monsters={filteredMonsters}/>
         </div>
       </>
     );
