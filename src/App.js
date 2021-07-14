@@ -7,7 +7,8 @@ class App extends React.Component {
 
   state = {
     monsters: [],
-    searchField: ""
+    searchField: "",
+    title: ""
   };
 
 
@@ -35,7 +36,7 @@ class App extends React.Component {
         <div>
          <Searchbox
           handleChange={this.handleChange} placeholder="search monsters"/>
-          <Cardlist monsters={filteredMonsters}/>
+           <Cardlist monsters={filteredMonsters}/> 
         </div>
       </>
     );
